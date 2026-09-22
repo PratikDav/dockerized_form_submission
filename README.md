@@ -4,9 +4,6 @@ A simple raw-PHP form project, containerized with Docker and deployed on AWS EC2
 
 ![Project Screenshot](./assets/screenshot.png)
 
-> Replace `assets/screenshot.png` with your own image — see **"Adding an Image"** section at the bottom for how this works.
-
----
 
 ## 📌 Overview
 
