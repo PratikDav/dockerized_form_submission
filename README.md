@@ -33,7 +33,7 @@ This project started as a basic raw-PHP form where a user can submit some text. 
   ```bash
   docker exec -i mysql mysql -u root -proot form_app < init.sql
   ```
-  Docker warned that passing the password inline on the command line isn't secure. As a safer alternative, I found I could copy `init.sql` into the container's `/tmp` folder and run it from inside a `bash` shell instead avoiding the password ever being passed as a plain CLI argument.
+  Docker *warned* that passing the password inline on the command line isn't secure. As a safer alternative, I found I could copy `init.sql` into the container's `/tmp` folder and run it from inside a `bash` shell instead avoiding the password ever being passed as a plain CLI argument.
 
 - **Why CI/CD exists**
   Every time I changed `index.php`, I had to manually stop, remove, rebuild, and rerun the container. Asking around led me to CI/CD pipelines I'd heard the term before, but this was the first time I understood *why* it exists: to remove exactly this kind of repetitive manual work.
