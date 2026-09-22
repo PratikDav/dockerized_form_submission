@@ -50,10 +50,4 @@ docker run -d -p 80:80 --env-file .env --name php-form php-form-app
 # Seed the database
 docker exec -i mysql mysql -u root -proot form_app < init.sql
 ```
-
-
-## 🤔 Open Question
-
-Still new to this field, if you have suggestions on making this pipeline more self-sufficient (e.g. a proper CI/CD setup, secrets management), I'd genuinely appreciate the advice. Feel free to open an issue or leave a comment.
-
 ---
