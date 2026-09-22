@@ -1,13 +1,13 @@
 # 🐳 Dockerized PHP Form on AWS
 
-A simple raw-PHP form project, containerized with Docker and deployed on AWS EC2 — built while learning core DevOps concepts like environment configuration, container networking, database injection, and CI/CD.
+A simple raw-PHP form project, containerized with Docker and deployed on AWS EC2 which is built while learning core DevOps concepts like environment configuration, container networking, database injection, and CI/CD.
 
 ![Project Screenshot](./assets/screenshot.png)
 
 
 ## 📌 Overview
 
-This project started as a basic raw-PHP form where a user can submit some text. The real learning, however, came from **dockerizing** and **deploying** it on AWS — and everything that broke along the way.
+This project started as a basic raw-PHP form where a user can submit some text. The real learning, however, came from **dockerizing** and **deploying** it on AWS  and everything that broke along the way.
 
 ## 🛠️ Tech Stack
 
@@ -33,10 +33,10 @@ This project started as a basic raw-PHP form where a user can submit some text. 
   ```bash
   docker exec -i mysql mysql -u root -proot form_app < init.sql
   ```
-  Docker warned that passing the password inline on the command line isn't secure. As a safer alternative, I found I could copy `init.sql` into the container's `/tmp` folder and run it from inside a `bash` shell instead — avoiding the password ever being passed as a plain CLI argument.
+  Docker warned that passing the password inline on the command line isn't secure. As a safer alternative, I found I could copy `init.sql` into the container's `/tmp` folder and run it from inside a `bash` shell instead avoiding the password ever being passed as a plain CLI argument.
 
 - **Why CI/CD exists**
-  Every time I changed `index.php`, I had to manually stop, remove, rebuild, and rerun the container. Asking around led me to CI/CD pipelines — I'd heard the term before, but this was the first time I understood *why* it exists: to remove exactly this kind of repetitive manual work.
+  Every time I changed `index.php`, I had to manually stop, remove, rebuild, and rerun the container. Asking around led me to CI/CD pipelines I'd heard the term before, but this was the first time I understood *why* it exists: to remove exactly this kind of repetitive manual work.
 
 ## 🚀 How to Run
 
@@ -55,7 +55,7 @@ docker exec -i mysql mysql -u root -proot form_app < init.sql
 
 ## 🤔 Open Question
 
-Still new to this field — if you have suggestions on making this pipeline more self-sufficient (e.g. a proper CI/CD setup, secrets management), I'd genuinely appreciate the advice. Feel free to open an issue or leave a comment.
+Still new to this field, if you have suggestions on making this pipeline more self-sufficient (e.g. a proper CI/CD setup, secrets management), I'd genuinely appreciate the advice. Feel free to open an issue or leave a comment.
 
 ---
 
@@ -71,4 +71,4 @@ To show a screenshot or diagram in a README, use Markdown's image syntax:
 - **From GitHub directly:** drag and drop the image into a GitHub issue, PR, or the README editor on github.com — GitHub will auto-upload it and generate a hosted URL you can paste in place of the path.
 - **External hosting:** if the image is hosted elsewhere (e.g. Imgur), just use its direct URL: `![Screenshot](https://example.com/image.png)`.
 
-That's exactly how the placeholder at the top of this file works — once you add your own file at `assets/screenshot.png` (or swap the path to wherever your image lives), it will render automatically.
+That's exactly how the placeholder at the top of this file works once you add your own file at `assets/screenshot.png` (or swap the path to wherever your image lives), it will render automatically.
