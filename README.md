@@ -51,7 +51,6 @@ docker run -d -p 80:80 --env-file .env --name php-form php-form-app
 docker exec -i mysql mysql -u root -proot form_app < init.sql
 ```
 
-> Update the port, env file, and container/image names above to match your actual setup.
 
 ## 🤔 Open Question
 
