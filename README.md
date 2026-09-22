@@ -57,17 +57,3 @@ docker exec -i mysql mysql -u root -proot form_app < init.sql
 Still new to this field, if you have suggestions on making this pipeline more self-sufficient (e.g. a proper CI/CD setup, secrets management), I'd genuinely appreciate the advice. Feel free to open an issue or leave a comment.
 
 ---
-
-## 🖼️ Adding an Image
-
-To show a screenshot or diagram in a README, use Markdown's image syntax:
-
-```markdown
-![Alt text](path/to/image.png)
-```
-
-- **Local file (recommended):** put your image inside the repo, e.g. in an `assets/` folder, then reference the relative path: `![Screenshot](./assets/screenshot.png)`.
-- **From GitHub directly:** drag and drop the image into a GitHub issue, PR, or the README editor on github.com — GitHub will auto-upload it and generate a hosted URL you can paste in place of the path.
-- **External hosting:** if the image is hosted elsewhere (e.g. Imgur), just use its direct URL: `![Screenshot](https://example.com/image.png)`.
-
-That's exactly how the placeholder at the top of this file works once you add your own file at `assets/screenshot.png` (or swap the path to wherever your image lives), it will render automatically.
