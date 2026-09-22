@@ -1,4 +1,4 @@
-# 🐳 Dockerized PHP Form on AWS
+<h1 align="center"> 🐳 Dockerized PHP Form on AWS</h1>
 
 A simple raw-PHP form project, containerized with Docker and deployed on AWS EC2 which is built while learning core DevOps concepts like environment configuration, container networking, database injection, and CI/CD.
 
