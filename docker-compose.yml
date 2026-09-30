@@ -1,0 +1,75 @@
+
+
+services:
+
+  mysql:
+    container_name        : mysql
+    image                 : mysql
+    environment           :
+      MYSQL_ROOT_PASSWORD : 'root'
+      MYSQL_DATABASE      : "devops"
+    ports                 :
+      - "3306:3306"
+    volumes               :
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks              :
+      - two-tier
+
+  db-init:
+    image: mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./init.sql:/init.sql:ro
+    networks:
+      - two-tier
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+       - "-ec"
+       - |
+        echo "Waiting for MySQL..."
+        until mysqladmin --protocol=TCP -h mysql -uroot -p"$$MYSQL_ROOT_PASSWORD" ping --silent; do
+          sleep 2
+        done
+
+        echo "Initializing database..."
+        mysql --protocol=TCP -h mysql -uroot -p"$$MYSQL_ROOT_PASSWORD" < /init.sql
+
+        echo "Database initialization completed."
+    restart: "no"
+
+  app:
+    build             :
+      context         : .
+    container_name    : two-tier-app
+    ports             :
+      - "80:80"
+    environment       :
+      MYSQL_HOST      : mysql
+      MYSQL_DATABASE  : devops
+      MYSQL_USERNAME  : root
+      MYSQL_PASSWORD  : root
+    networks          :
+      - two-tier
+    depends_on:
+      mysql:
+        condition: service_healthy
+      db-init:
+        condition: service_completed_successfully
+    
+
+volumes:
+  mysql-data:
+
+networks:
+  two-tier:
+

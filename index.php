@@ -1,6 +1,6 @@
 <?php
 $host = getenv('MYSQL_HOST') ?: 'mysql';
-$database = getenv('MYSQL_DATABASE') ?: 'form_app';
+$database = getenv('MYSQL_DATABASE') ?: 'devops';
 $username = getenv('MYSQL_USERNAME') ?: 'root';
 $password = getenv('MYSQL_PASSWORD') ?: 'root';
 
