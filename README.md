@@ -50,4 +50,4 @@ This project started as a basic raw-PHP form where a user can submit some text. 
 ---
 
 
-<p>At least, I also developed & added <b>docker-compose.uml</b> file to this repo.. </p>
+<p>At least, I also developed & added <b>docker-compose.yml</b> file to this repo.. </p>
