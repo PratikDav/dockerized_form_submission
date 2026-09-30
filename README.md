@@ -34,13 +34,15 @@ This project started as a basic raw-PHP form where a user can submit some text. 
   docker exec -i mysql mysql -u root -proot form_app < init.sql
   ```
   <p align = "center">or</p>
+  
   ```bash
- ~/dockerized_form_submission/init.sql
- docker cp ~/dockerized_form_submission/init.sql mysql:/tmp/init.sql
- docker exec -it mysql mysql -u root -p
- USE form_app;
- SOURCE /tmp/init.sql;
+   ~/dockerized_form_submission/init.sql
+   docker cp ~/dockerized_form_submission/init.sql mysql:/tmp/init.sql
+   docker exec -it mysql mysql -u root -p
+   USE form_app;
+   SOURCE /tmp/init.sql;
   ```
+
   Docker *warned* that passing the password inline on the command line isn't secure. As a safer alternative, I found I could copy `init.sql` into the container's `/tmp` folder and run it from inside a `bash` shell instead avoiding the password ever being passed as a plain CLI argument.
 
 - **Why CI/CD exists**
